@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Railsapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <% flash.each do |type, msg| %>
+    <div id="error_message_id" class="error_message_div <%=type %>">
+      <%= msg %>
+    </div>
+  <% end %>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+<script>
+/* for notice*/ 
+window.addEventListener("load", function(){
+  var element = document.getElementById("error_message_id");
+  if (element != null) {
+    setTimeout(()=>{
+      element.classList.add('error_message_fade_out');
+  }, 1000);
+  setTimeout(()=>{
+    element.remove();
+  }, 3000)
+  }
+});
+/* for error_message */
+window.addEventListener("load", function(){
+  var error_el = document.getElementById("error_explanation");
+  if (error_el != null) {
+    setTimeout(()=>{
+      error_el.classList.add('error_message_fade_out');
+  }, 1000);
+  setTimeout(()=>{
+    error_el.remove();
+  }, 3000)
+  }
+}); 
+</script>
+    
