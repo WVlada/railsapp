@@ -1,12 +1,6 @@
-// a for loading first
-$pink: #ffb3b3;
-$pink-invert: #fff;
-// Add a serif family
+$color: #ccc8ff;
 $family-serif: 'Playfair Display', serif;
 $family-primary: $family-serif;
-
-// 3. Set the derived variables
-// Use the new pink as the primary color
-$primary: $pink;
+$primary: $color;
 
 @import "bulma";
